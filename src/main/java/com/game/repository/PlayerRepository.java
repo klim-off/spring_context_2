@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Date;
 import java.util.List;
 
+// интерфейс - это контракт на тему как это должно работать без конкретики, как это работает
 @Repository
 public interface PlayerRepository extends PagingAndSortingRepository<Player, Long> {
 

@@ -17,9 +17,9 @@ import org.springframework.web.servlet.view.JstlView;
 
 import java.util.List;
 
-@Configuration
-@EnableWebMvc
-@ComponentScan("com.game")
+@Configuration // указывает, что это класс конфигурирования
+@EnableWebMvc // включает спринговую реализацию сервелетов(взаимодействие с фронтом)
+@ComponentScan("com.game") // адрес страницы для сервелета с которым работаем при запросах на фронт
 public class WebConfig implements WebMvcConfigurer {
 
 

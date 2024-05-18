@@ -5,13 +5,19 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.javarush</groupId>
+    <!-- the name of result -->
     <artifactId>rpg</artifactId>
+    <!-- under development -->
     <version>1.0-SNAPSHOT</version>
+    <!-- web archive  -->
     <packaging>war</packaging>
 
     <properties>
+        <!-- encoding(кодировки)-->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <!--Единая точка версионирования наших зависимостей (single point of dependency versioning)
+          это как переменные, чтобы не писать далее много раз одно и тоже и не исправлять-->
         <java.version>1.8</java.version>
         <spring.version>5.2.3.RELEASE</spring.version>
     </properties>
@@ -102,6 +108,8 @@
             <scope>test</scope>
         </dependency>
 
+       <!-- Эта зависимость в рантайме на основании интефейса(PlayerRepository) формирует реализацию и осуществляет
+            взаимодействие с БД-->
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-jpa</artifactId>
@@ -130,6 +138,7 @@
     </dependencies>
 
     <build>
+        <!-- миниприложения, которые отвечают за процесс сборки нашей программы -->
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

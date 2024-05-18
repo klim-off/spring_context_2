@@ -21,13 +21,13 @@ import java.util.Properties;
 
 import static org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType.H2;
 
-@Configuration
-@EnableTransactionManagement
-@ComponentScan("com.game")
-@EnableJpaRepositories(basePackages = "com.game.repository")
+@Configuration   // указывает, что это конфигурационный класс
+@EnableTransactionManagement  // включаем процесс управления транзакциями по взаимодействиями  с БД
+@ComponentScan("com.game")    // указывает от какого пакета Спринг должен начать сканировать приложения, для собирания кнтекста
+@EnableJpaRepositories(basePackages = "com.game.repository") // включение возможности автомат. создания для репозитория
 public class AppConfig {
 
-    @Bean
+    @Bean // говорим, что это будет бин для Спринг контекста
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
@@ -42,6 +42,7 @@ public class AppConfig {
 
     @Profile("prod")
     @Bean
+    // вся идея соединения с БД
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");

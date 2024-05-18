@@ -17,9 +17,13 @@ import java.util.List;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
+// здесь реализована бизнес логика (кредиты считаем, решаем какие фильмы показывать и т.д.)
+
+
 @Service
 public class PlayerService {
-    @Autowired
+
+    @Autowired // создает экземпляр объекта
     private PlayerRepository playerRepository;
 
     public List<Player> getAll(String name, String title, Race race, Profession profession, Long after, Long before,

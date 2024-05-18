@@ -19,14 +19,15 @@ import java.util.stream.Collectors;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
-@RestController
-@RequestMapping("/rest/players")
+@RestController // включает спринговый Rest Api - межмашинное взаимодействие в основном формат json
+// также это анатация позволяет автоматически инвертировать данные в json
+@RequestMapping("/rest/players")  // у любого контроллера есть контроллер (срвелета). Зжесь указывается путь к контроллеру
 public class PlayerController {
 
     @Autowired
     private PlayerService playerService;
 
-    @GetMapping()
+    @GetMapping()  // из запроса на странице спринг выбирает параметры и заполняет параметры метод java
     public List<PlayerInfo> getAll(@RequestParam(required = false) String name,
                                    @RequestParam(required = false) String title,
                                    @RequestParam(required = false) Race race,
